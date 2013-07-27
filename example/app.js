@@ -1,3 +1,5 @@
+var fs = require('fs');
+var path = require('path');
 var index = require('../lib/index');
 var viz = index.VizVisualizer;
 
@@ -38,10 +40,27 @@ var options = {
     allFunctions: false
 };
 
+
 var clsSvg = viz.render('User', User, options);
 
-console.log('\n', clsSvg);
+fs.writeFile(path.join(__dirname, 'user-class.svg'), clsSvg, function (err) {
+    if (err) throw err;
+    console.log('user-class.svg is saved to ' + __dirname);
+});
 
 var objSvg = viz.render('User', user, options);
-console.log('\n', objSvg);
+
+fs.writeFile(path.join(__dirname, 'user-object.svg'), objSvg, function (err) {
+    if (err) throw err;
+    console.log('user-object.svg is saved to ' + __dirname);
+});
+
+var clsGraph = viz.renderGraph('User', User, options);
+
+fs.writeFile(path.join(__dirname, 'user-class.dot'), clsGraph, function (err) {
+    if (err) throw err;
+    console.log('user-class.dot is saved to ' + __dirname);
+});
+
+
 
