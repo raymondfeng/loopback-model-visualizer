@@ -17,7 +17,7 @@
 				}
 			};
 			graph = new jdls.ObjectGraph("name", object);
-			details = jdls.viz.details;
+			details = new jdls.VizVisualizer();
 		});
 
 		it("escapes HTML strings", function() {

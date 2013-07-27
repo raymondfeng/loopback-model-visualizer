@@ -1,5 +1,5 @@
 var index = require('../lib/index');
-var viz = index.viz;
+var viz = index.VizVisualizer;
 
 var loopbackData = require('loopback-data');
 var DataSource = loopbackData.DataSource;
@@ -38,7 +38,10 @@ var options = {
     allFunctions: false
 };
 
+var clsSvg = viz.render('User', User, options);
 
-var svg = viz.render('User', user, options);
-console.log(svg);
+console.log('\n', clsSvg);
+
+var objSvg = viz.render('User', user, options);
+console.log('\n', objSvg);
 
