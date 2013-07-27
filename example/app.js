@@ -37,9 +37,11 @@ var user = new User({name: 'Joe', age: 30, joinedAt: new Date()});
 
 var options = {
     builtins: false,
-    allFunctions: false
+    allFunctions: false,
+    excludingNulls: true
 };
 
+console.log('Rendering diagrams ...');
 
 var clsSvg = viz.render('User', User, options);
 
