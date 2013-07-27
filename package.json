@@ -1,0 +1,23 @@
+{
+    "name": "loopback-data-visualizer",
+    "description": "Loopback data model visualizer",
+    "version": "0.0.1",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/strongloop/loopback-data-visualizer"
+    },
+    "main": "lib/index.js",
+    "scripts": {
+        "test": "mocha -R spec"
+    },
+    "engines": [
+        "node >= 0.10"
+    ],
+    "devDependencies": {
+        "should": "latest",
+        "expect.js": "latest",
+        "mocha": "latest"
+    },
+    "dependencies": {
+    }
+}
