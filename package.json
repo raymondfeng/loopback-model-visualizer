@@ -19,5 +19,6 @@
         "mocha": "latest"
     },
     "dependencies": {
+        "loopback-data": "git+ssh://git@github.com:strongloop/loopback-data.git"
     }
 }
