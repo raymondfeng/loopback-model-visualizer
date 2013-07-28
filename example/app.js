@@ -18,14 +18,15 @@ var Post = ds.define('Post', {
     published: { type: Boolean, default: false, index: true }
 });
 
-// simplier way to describe model
-var User = ds.define('User', {
+var UserSchema = {
     name: String,
     bio: DataSource.Text,
     approved: Boolean,
     joinedAt: Date,
     age: Number
-});
+};
+
+var User = ds.define('User', UserSchema);
 
 // setup relationships
 User.hasMany(Post, {as: 'posts', foreignKey: 'userId'});
@@ -38,10 +39,18 @@ var user = new User({name: 'Joe', age: 30, joinedAt: new Date()});
 var options = {
     builtins: false,
     allFunctions: false,
-    excludingNulls: true
+    excludingNulls: true,
+    format: 'svg'
 };
 
 console.log('Rendering diagrams ...');
+
+var schemaSvg = viz.render('UserSchema', UserSchema, options);
+
+fs.writeFile(path.join(__dirname, 'user-schema.svg'), schemaSvg, function (err) {
+    if (err) throw err;
+    console.log('user-schema.svg is saved to ' + __dirname);
+});
 
 var clsSvg = viz.render('User', User, options);
 
