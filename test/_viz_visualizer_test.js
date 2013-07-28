@@ -16,7 +16,7 @@
 					b: "b"
 				}
 			};
-			graph = new jdls.ObjectGraph("name", object);
+			graph = new jdls.ObjectGraph("TestGraph", object);
 			details = new jdls.VizVisualizer();
 		});
 
@@ -65,7 +65,7 @@
 			var edge = graph.edges()[0];
 
 			expect(details.graphToViz(graph)).to.equal(
-				'digraph g {\n' +
+				'digraph TestGraph {\n' +
 				'  graph [\n' +
 				'    rankdir = "LR"\n' +
 				'  ];\n' +
