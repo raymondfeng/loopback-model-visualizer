@@ -101,7 +101,34 @@
 			});
 		});
 
-		describe("built-in object filtering", function() {
+        describe("toJSON()", function () {
+            it("produces JSON representation of the graph", function () {
+                var a = { name: "a" };
+                var b = { name: "b",
+                    a: a
+                };
+                var c = { name: "c",
+                    b: b
+                };
+
+                var obj = newGraph("graph", c);
+                var json = obj.toJSON();
+                expect(json).to.have.property('name', 'graph');
+                expect(json).to.have.property('nodes');
+                expect(json.nodes).to.have.property('length', 3);
+                var node = json.nodes[0];
+                expect(node).to.have.property('id');
+                expect(node).to.have.property('value');
+                expect(node).to.have.property('properties');
+                expect(json.edges).to.have.property('length', 2);
+                expect(json.edges[0]).to.have.property('from');
+                expect(json.edges[0]).to.have.property('to');
+                expect(json.edges[0]).to.have.property('fromField');
+            });
+        });
+
+
+        describe("built-in object filtering", function() {
 			it("ignores built-in objects", function() {
 				var object = {
 					a: Object.prototype,

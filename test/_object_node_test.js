@@ -258,6 +258,20 @@
 				]);
 			});
 
+            it("produces JSON string with toJSON", function() {
+                function MyClass() {}
+                var object = new MyClass();
+                object.a = function aFunction() {};
+                object.b = Array.prototype;
+
+                var node = newNode("name", object);
+                var json = node.toJSON();
+                expect(json).to.have.property('id');
+                expect(json).to.have.property('value');
+                expect(json).to.have.property('properties');
+                expect(json.properties).to.have.property('length', 2);
+            });
+
 		});
 
 	});
