@@ -6,6 +6,8 @@
     var jdls = require('../lib/index');
     var expect = require('expect.js');
 
+    var ANONYMOUS = jdls.ObjectNode.ANONYMOUS;
+
     // var mocha = require('mocha');
 
     // mocha.setup({ignoreLeaks: true});
@@ -42,7 +44,7 @@
 
 			it("is anonymous for unnamed functions", function() {
 				var node = newNode("name", function() {});
-				expect(node.name()).to.equal("<anon>()");
+				expect(node.name()).to.equal(ANONYMOUS + "()");
 			});
 
 			it("handles 'Function' special case", function() {
@@ -85,7 +87,7 @@
 			it("is anonymous when prototype doesn't have a name", function() {
 				var object = Object.create({});
 				var node = newNode("name", object);
-				expect(node.type()).to.equal("<anon>");
+				expect(node.type()).to.equal(ANONYMOUS);
 			});
 
 			it("is null when object has no prototype", function() {
@@ -148,7 +150,7 @@
 
 			it("converts functions", function() {
 				expect(conversionOf(function aFunction() {})).to.equal("aFunction()");
-				expect(conversionOf(function () {})).to.equal("<anon>()");
+				expect(conversionOf(function () {})).to.equal(ANONYMOUS + "()");
 			});
 
 			it("converts objects to their names when they have one", function() {
