@@ -3,7 +3,7 @@ var path = require('path');
 var index = require('../lib/index');
 var viz = index.VizVisualizer;
 
-var loopbackData = require('loopback-data');
+var loopbackData = require('loopback-datasource-juggler');
 var DataSource = loopbackData.DataSource;
 var ds = new DataSource('memory');
 
