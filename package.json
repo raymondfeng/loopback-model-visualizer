@@ -8,7 +8,11 @@
     },
     "main": "lib/index.js",
     "scripts": {
-        "test": "mocha -R spec"
+        "test": "mocha -R spec",
+	  "blanket": {
+	      "pattern": "//^((?!(node_modules|test)).)*$/"
+	  },
+        "coverage": "mocha -r blanket -R html-cov > coverage_loopback-data-visualizer.html"
     },
     "engines": [
         "node >= 0.10"
@@ -19,6 +23,7 @@
         "mocha": "latest"
     },
     "dependencies": {
-        "loopback-datasource-juggler": "git+ssh://git@github.com:strongloop/loopback-datasource-juggler.git"
+        "loopback-datasource-juggler": "git+ssh://git@github.com:strongloop/loopback-datasource-juggler.git",
+	"blanket": "latest"
     }
 }
