@@ -1,29 +1,30 @@
 {
-    "name": "loopback-data-visualizer",
-    "description": "Loopback data model visualizer",
-    "version": "0.0.1",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/strongloop/loopback-data-visualizer"
+  "name": "loopback-data-visualizer",
+  "description": "Loopback data model visualizer",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/strongloop/loopback-data-visualizer"
+  },
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "mocha -R spec",
+    "blanket": {
+      "pattern": "//^((?!(node_modules|test)).)*$/"
     },
-    "main": "lib/index.js",
-    "scripts": {
-        "test": "mocha -R spec",
-	  "blanket": {
-	      "pattern": "//^((?!(node_modules|test)).)*$/"
-	  },
-        "coverage": "mocha -r blanket -R html-cov > coverage_loopback-data-visualizer.html"
-    },
-    "engines": [
-        "node >= 0.10"
-    ],
-    "devDependencies": {
-        "should": "latest",
-        "expect.js": "latest",
-        "mocha": "latest"
-    },
-    "dependencies": {
-        "loopback-datasource-juggler": "git+ssh://git@github.com:strongloop/loopback-datasource-juggler.git",
-	"blanket": "latest"
-    }
+    "coverage": "mocha -r blanket -R html-cov > coverage_loopback-data-visualizer.html"
+  },
+  "engines": [
+    "node >= 0.10"
+  ],
+  "devDependencies": {
+    "should": "~1.2.2",
+    "expect.js": "~0.2.0",
+    "mocha": "~1.12.1",
+    "blanket": "~1.1.5"
+  },
+  "dependencies": {
+    "loopback-datasource-juggler": "git+ssh://git@github.com:strongloop/loopback-datasource-juggler.git"
+  },
+  "license": "MIT"
 }
