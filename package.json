@@ -19,7 +19,7 @@
     "mocha": "~1.12.1"
   },
   "dependencies": {
-    "loopback-datasource-juggler": "git+ssh://git@github.com:strongloop/loopback-datasource-juggler.git"
+    "loopback-datasource-juggler": "~1.2.7"
   },
   "license": "MIT"
 }
