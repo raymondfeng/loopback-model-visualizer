@@ -13,6 +13,9 @@
   "engines": [
     "node >= 0.10"
   ],
+  "ci": {
+    "exclude_coverage": "lib/viz/viz.js"
+  },
   "devDependencies": {
     "should": "~1.2.2",
     "expect.js": "~0.2.0",
