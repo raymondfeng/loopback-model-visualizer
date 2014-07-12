@@ -17,12 +17,13 @@
     "exclude_coverage": "lib/viz/viz.js"
   },
   "devDependencies": {
-    "should": "~1.2.2",
-    "expect.js": "~0.2.0",
-    "mocha": "~1.12.1"
+    "should": "~4.0.4",
+    "expect.js": "~0.3.1",
+    "mocha": "~1.20.1"
   },
   "dependencies": {
-    "loopback-datasource-juggler": "~1.2.7"
+    "loopback": "~1.9.1",
+    "loopback-datasource-juggler": "~1.6.3"
   },
   "license": "MIT"
 }
