@@ -3,26 +3,27 @@
 The Loopback Data Model visualizer generates SVG diagrams from model definitions using
 [graphviz](http://www.graphviz.org/). It is forked from [object_playground](https://github.com/jamesshore/object_playground).
 
-## To render an object to graphviz diagrams such as DOT or SVG.
+## To render models to graphviz diagrams such as DOT or SVG.
 
-        var fs = require('fs');
-        var path = require('path');
-        var viz = require('loopback-data-visualizer');
+```js
+var schemaSvg = viz.render('Models', models, options);
 
-        var options = {
-            builtins: false,
-            allFunctions: false
-            builtins: false,
-            excludingNulls: true,
-            format: 'svg'
-        };
+fs.writeFile(path.join(__dirname, 'loopback-models.svg'), schemaSvg, function (err) {
+  if (err) {
+    throw err;
+  }
+  console.log('loopback-models.svg is saved to ' + __dirname);
+});
 
-        var svg = viz.render('User', User, options);
+var clsGraph = viz.renderGraph('Models', models, options);
 
-        fs.writeFile(path.join(__dirname, 'user-class.svg'), svg, function (err) {
-            if (err) throw err;
-            console.log('user-class.svg is saved to ' + __dirname);
-        });
+fs.writeFile(path.join(__dirname, 'loopback-models.dot'), clsGraph, function (err) {
+  if (err) {
+    throw err;
+  }
+  console.log('loopback-models.dot is saved to ' + __dirname);
+});
+```
 
 To run samples:
 
@@ -30,16 +31,13 @@ To run samples:
 
 You will find the following diagrams generated:
 
-* user-class.svg (open with browsers such as Chrome)
-* user-class.dot (open with graphviz)
-* user-object.svg
+* loopback-models.svg (open with browsers such as Chrome)
+* loopback-models.dot (open with graphviz)
 
 
 ### Options
 
 #### Filters
-* builtins: Including builtin types
-* allFunctions: Including all functions
 * excludingNulls: Excluding null/undefined properties
 * format: Diagram format
 
