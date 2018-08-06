@@ -6,6 +6,13 @@ The Loopback Data Model visualizer generates DOT or SVG diagrams from model defi
 ## To render models to graphviz diagrams such as DOT or SVG.
 
 ```js
+var options = {
+  excludingNulls: true,
+  format: 'svg',
+  excludeInstanceMethods: false,
+  excludeStaticMethods: false
+}
+
 var schemaSvg = viz.render('Models', models, options);
 
 fs.writeFile(path.join(__dirname, 'loopback-models.svg'), schemaSvg, function (err) {
@@ -40,6 +47,8 @@ You will find the following diagrams generated:
 #### Filters
 * excludingNulls: Excluding null/undefined properties
 * format: Diagram format
+* excludeInstanceMethods: Exclude instance methods from graph model listings
+* excludeStaticMethods: Exclude static methods from graph model listings
 
 #### Diagram settings
 * ARROW_COLOR
